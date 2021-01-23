@@ -8,13 +8,22 @@ const firstBook = {
     author: "Seanan McGuire"
 }
 
+const secondBook = {
+    img: "https://m.media-amazon.com/images/I/51BjI4q27GL.jpg",
+    title: 'Beneath the Sugar Sky',
+    author: "Seanan McGuire"
+
+}
+
 
 function BookList() {
     return (
         <section className="booklist">
 
-            <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} />
-            <Book job='1' />
+            <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} >
+                <p>lorem </p>
+            </Book>
+            <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
             <Book />
             <Book />
             <Book />
@@ -24,12 +33,13 @@ function BookList() {
 }
 
 const Book = (props) => {
-    console.log(props);
+    const { img, title, author } = props
     return (
         <article className="book">
-            <img src={props.img} alt='book' />
-            <h1>{props.title}</h1>
-            <h4>{props.author}</h4>
+            <img src={img} alt='book' />
+            <h1>{title}</h1>
+            <h4>{author}</h4>
+            {props.children}
 
         </article>
     );
